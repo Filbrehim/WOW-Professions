@@ -1,0 +1,8 @@
+## Interface: 70300
+## Title: NiveauProfession
+## Version: 2.0
+## Author: Filbrehim
+## Notes: Vos professions sont-elles OK pour votre niveau ?
+## SavedVariablesPerCharacter: reste,jusqua,objectif
+
+NiveauProfession.lua
