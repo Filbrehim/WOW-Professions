@@ -16,14 +16,13 @@ SLASH_NIVEAUPROFESSION1 = "/np" ;
 SLASH_RESETOBJECTIFDEMI1 = "/odn" ;
 VERSION_NP = "v2.0 fevrier" ;
 local frame = CreateFrame("Frame") ;
---local monxp0 ;
+
 local monxp,monxpmax ;
 local pourcent = 0 ;
 local g_niveau = 0 ;
 local spam_time_np = 0 ;
 local niveau_maxi = {} ;
 local np_jours = { CalendarGetWeekdayNames() ;}
---print( "Niveau profession (initial) : |cffff0000 " .. VERSION)
 
 function NiveauProfession_OnEvent(self, event, arg1, ...)
  local tmp_a = {} ;
@@ -72,13 +71,7 @@ function NiveauProfession_OnEvent(self, event, arg1, ...)
 		pourcent = floor(100-100*reste/objectif)
 		
 	end
-	if (event == "PLAYER_LEVEL_UP") then
-		g_niveau = UnitLevel("player") ;
-		spam_time_np = 0 ;
-		monxp = UnitXP("player") ;
-		-- monxp0 = monxp ;
 
-	end
 	if (event == "PLAYER_XP_UPDATE" ) then
 		if ( UnitXP("player") < monxp ) then
 		-- un niveau 
@@ -95,6 +88,12 @@ function NiveauProfession_OnEvent(self, event, arg1, ...)
 			NP_print_demi_niveau() ;
 		end
 	end 
+ 	if (event == "PLAYER_LEVEL_UP") then
+		g_niveau = UnitLevel("player") ;
+		spam_time_np = 0 ;
+		monxp = UnitXP("player") ;
+
+	end
  end
 end
 
